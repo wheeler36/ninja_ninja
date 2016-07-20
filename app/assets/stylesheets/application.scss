@@ -1,0 +1,88 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$primary: #FFFFFF;
+$secondary: #7d6464;
+$accent: #252222;
+
+* {
+	box-sizing: border-box;
+	color: white;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	background: #E55D87; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #E55D87 , #5FC3E4); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #E55D87 , #5FC3E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+	padding-top: 4.5rem;
+	font-family: 'Lato', sans-serif;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+a {
+	color: $accent;
+	text-decoration: none;
+	&:hover {
+		color: $secondary;
+	}
+}
+
+header {
+	background: $primary;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 1.5rem 0;
+	.header_inner {
+		width: 90%;
+		margin: 0 auto;
+		.name {
+			display: inline-block;
+			font-size: 1.5rem;
+			width: 10rem;
+			float: left;
+		}
+		nav {
+			float: right;
+			a {
+				text-decoration: none;
+				color: $accent;
+				font-size: 1.1rem;
+				line-height: 1.5;
+				margin-left: 1rem;
+				&:hover {
+					color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+@import 'normalize';
