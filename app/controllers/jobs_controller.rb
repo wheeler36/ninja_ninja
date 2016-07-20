@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorized_user, only: [:edit, :update, :destroy]
   before_action :find_job, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,11 +11,11 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new
+    @job = current_user.jobs.build
   end
 
   def create
-    @job = Job.new(job_params)
+    @job = current_user.jobs.build(job_params)
     if @job.save
       redirect_to @job
     else
@@ -41,6 +43,11 @@ class JobsController < ApplicationController
 
   def find_job
     @job = Job.find(params[:id])
+  end
+
+  def authorized_user
+    @job = current_user.jobs.find_by(id: params[:id])
+    redirect_to root_path, notice: "Not authorized to modify this job" if @job.nil?
   end
 
   def job_params

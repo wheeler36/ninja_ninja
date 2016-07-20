@@ -2,10 +2,12 @@
   <h2><%= @job.title %></h2>
   <p><%= @job.company %></p>
   <p><%= @job.description %></p>
-  <button><%= link_to "View Job", @job.url, :target => "_blank" %></button>
+  <%= link_to "View Job", @job.url, :target => "_blank" %>
 </div>
 
-<div class="show_actions">
-  <p><%= link_to "Edit", edit_job_path(@job) %></p>
-  <p><%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "You Sure?" } %></p>
-</div>
+<% if @job.user == current_user %>
+  <div class="show_actions">
+    <p><%= link_to "Edit", edit_job_path(@job) %></p>
+    <p><%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "You Sure?" } %></p>
+  </div>
+<% end %>

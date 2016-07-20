@@ -5,7 +5,9 @@
     <% @jobs.each do |job| %>
       <%= link_to job.title, job %><br>
       <%= job.company %><br>
-      <%= job.created_at.strftime("%B, %d, %Y") %>
+      <%= job.created_at.strftime("%B, %d, %Y") %><br>
+      <br>
+      <br>
     <% end %>
 </div><br>
 
