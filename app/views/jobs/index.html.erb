@@ -1,1 +1,14 @@
 <h1>Hello World!</h1>
+
+<div class="all_jobs">
+  <h2>Recent Listings</h2>
+    <% @jobs.each do |job| %>
+      <%= link_to job.title, job %><br>
+      <%= job.company %><br>
+      <%= job.created_at.strftime("%B, %d, %Y") %>
+    <% end %>
+</div><br>
+
+<div>
+  <%= link_to "Add Job", new_job_path %>
+</div>

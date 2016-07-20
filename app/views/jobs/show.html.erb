@@ -1,0 +1,11 @@
+<div class="show">
+  <h2><%= @job.title %></h2>
+  <p><%= @job.company %></p>
+  <p><%= @job.description %></p>
+  <button><%= link_to "View Job", @job.url, :target => "_blank" %></button>
+</div>
+
+<div class="show_actions">
+  <p><%= link_to "Edit", edit_job_path(@job) %></p>
+  <p><%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "You Sure?" } %></p>
+</div>
