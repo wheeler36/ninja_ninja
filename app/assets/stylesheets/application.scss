@@ -20,7 +20,6 @@ $accent: #252222;
 
 * {
 	box-sizing: border-box;
-	color: white;
 }
 
 html {
@@ -44,6 +43,23 @@ body {
 
 .clearfix:after {
 	clear: both;
+}
+
+button, .button {
+	border: none;
+	outline: none;
+	background: $primary;
+	padding: 1rem 3.5rem;
+	border-radius: 2rem;
+	a {
+		color: $secondary;
+		text-decoration: none;
+	}
+}
+
+.button {
+	color: $secondary;
+	margin: 2rem 0;
 }
 
 a {
@@ -83,6 +99,21 @@ header {
 			}
 		}
 	}
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+	width: 100%;
+	margin-bottom: 1rem;
+	border: 1px solid $secondary;
+	border-radius: .4rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+	height: 40px;
+}
+
+textarea {
+	min-height: 200px;
 }
 
 @import 'normalize';
