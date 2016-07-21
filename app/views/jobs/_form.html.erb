@@ -10,6 +10,10 @@
     </div>
   <% end %>
   <p>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a Category" } %>
+  </p>
+  
+  <p>
    <%= f.label :title %><br>
    <%= f.text_field :title %>
   </p>
