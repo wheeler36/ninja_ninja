@@ -1,16 +1,31 @@
-<h1>Hello World!</h1>
+<div class="wrapper">
+  <div class="welcome">
+    <img src="../assets/two_ninjas.png" class="ninjas">
+    <h1>Welcome to Ninja Ninja!</h1>
+    <p>Where qualified ninjas find their dream job as a living nightmare.</p>
+  </div>
 
-<div class="all_jobs">
-  <h2>Recent Listings</h2>
+  <ul id="timeline">
     <% @jobs.each do |job| %>
-      <%= link_to job.title, job %><br>
-      <%= job.company %><br>
-      <%= job.created_at.strftime("%B, %d, %Y") %><br>
-      <br>
-      <br>
+      <%= link_to job do %>
+        <li class="listing clearfix">
+          <div class="image_wrapper">
+            <img src="../assets/twitter.png">
+          </div>
+          <div class="info">
+            <span class="job_title"><%= job.title %></span>
+            <span class="job_info"><%= job.company %> 
+              <span>&bull;</span> San Francisco <span>&bull;</span><%= job.created_at.strftime("%B %d") %>
+            </span>
+          </div>
+          <span class="job_type"><%= job.category.name %></span>
+        </li>
+      <% end %>
     <% end %>
-</div><br>
+  </ul>
 
-<div>
-  <%= link_to "Add Job", new_job_path %>
+  <div>
+    <%= link_to "Add Job", new_job_path %>
+  </div>
 </div>
+    

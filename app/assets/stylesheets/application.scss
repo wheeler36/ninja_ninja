@@ -14,9 +14,10 @@
  *= require_self
  */
 
-$primary: #FFFFFF;
-$secondary: #7d6464;
+$primary: #5f4d4d;
+$secondary: #000000;
 $accent: #252222;
+$white: #FFFFFF;
 
 * {
 	box-sizing: border-box;
@@ -28,11 +29,10 @@ html {
 
 body {
 	height: 100%;
-	background: #E55D87; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #E55D87 , #5FC3E4); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #E55D87 , #5FC3E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+	color: $primary;  
 	padding-top: 4.5rem;
 	font-family: 'Lato', sans-serif;
+	padding-bottom: 4rem;
 }
 
 .clearfix:before,
@@ -45,11 +45,121 @@ body {
 	clear: both;
 }
 
+.wrapper {
+	padding: 0 2rem;
+	.welcome {
+		text-align: center;
+		margin-top: 2rem;
+		padding: 2rem 0;
+		h1 {
+			font-size: 2.25rem;
+		}
+		p {
+			font-size: 1.45rem;
+			line-height: 1.15;
+
+		}
+		.ninjas {
+			height: 100px;
+			width: 200px;
+		}
+	}
+}
+
+
+
+#timeline {
+	width: 100%;
+	position: relative;
+	list-style: none;
+	padding: 0;
+	a {
+		text-decoration: none;
+	}
+	.listing {
+		background: rgba(0, 0, 0, 0.05);
+		border: 1px solid $accent;
+		border-radius: 0.3rem;
+		padding: 1rem;
+		margin-bottom: 1rem;
+		position: relative;
+		z-index: 1;
+		display: table;
+		width: 96%;
+		.img, .info, .job_type {
+			display: table-cell;
+			vertical-align: middle;
+			font-size: .9rem;
+			color: $secondary;
+		}
+		.image_wrapper {
+			width: 60px;
+			img {
+				width: 60px;
+				display: block;
+				margin: 0 auto;
+				border-radius: .25rem;
+			}
+		}
+		.info {
+			line-height: 1.25;
+			width: 640px;
+			padding-left: 25px;
+			.job_title {
+				font-weight: 700;
+				color: $accent;
+				font-size: 1.5rem;
+			}
+			.job_info {
+				color: $secondary;
+				display: block;
+				span {
+					margin: 0 0.75rem;
+				}
+			}
+		}
+		.job_type {
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 0.75rem;
+			position: relative;
+			white-space: nowrap;
+			padding-top: 0.5rem;
+			width: 100px;
+			&:before {
+				content: " ";
+				background: $accent;
+				width: 10px;
+				height: 10px;
+				border-radius: 100%;
+				position: absolute;
+				left: -20px;
+				top: 28px;
+			}
+		}
+		transition: all .3s ease-in-out;
+		&:hover {
+			cursor: pointer;
+			box-shadow: 0px 2px 40px 0 rgba(0, 0, 0, 0.1)
+		}
+	}
+}
+
+
+
+
+.categories {
+	text-align: center;
+	.category {
+		margin: 0 0.5rem;
+	}
+}
+
 button, .button {
 	border: none;
 	outline: none;
 	background: $primary;
-	padding: 1rem 3.5rem;
+	padding: 1rem 2.5rem;
 	border-radius: 2rem;
 	a {
 		color: $secondary;
@@ -63,7 +173,7 @@ button, .button {
 }
 
 a {
-	color: $accent;
+	color: $primary;
 	text-decoration: none;
 	&:hover {
 		color: $secondary;
@@ -71,7 +181,6 @@ a {
 }
 
 header {
-	background: $primary;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -89,7 +198,7 @@ header {
 			float: right;
 			a {
 				text-decoration: none;
-				color: $accent;
+				color: $primary;
 				font-size: 1.1rem;
 				line-height: 1.5;
 				margin-left: 1rem;
@@ -116,4 +225,59 @@ textarea {
 	min-height: 200px;
 }
 
+@media only screen and (max-width: 768px) {
+	header {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		padding: 1.5rem 0;
+		.header_inner {
+			width: 90%;
+			margin: 0 auto;
+			.name {
+				display: block;
+				font-size: 1.35rem;
+				float: none;
+				margin: 0 auto 2rem;
+				text-align: center;
+			}
+			nav {
+				float: none;
+				text-align: center;
+				a {
+					color: $primary;
+					font-size: 1.1rem;
+					line-height: 1.5;
+					margin: 0 0.5rem;				
+				}
+			}
+		}
+	}
+	.categories {
+		margin-top: 5rem;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#timeline {
+		.listing {
+			.image_wrapper {
+				margin-right: 1rem;
+				img {
+					width: 50px;
+				}
+			}
+			.info {
+				width: 100%;
+				padding: 0.4rem 0 0 0;
+				.job_title {
+					font-size: 1.25rem;
+				}
+			}
+			.job_type {
+				display: none;
+			}
+		}
+	}
+}
 @import 'normalize';

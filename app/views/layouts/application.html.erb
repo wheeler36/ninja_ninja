@@ -12,9 +12,11 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <% Category.all.each do |category| %>
-      <%= link_to category.name, jobs_path(category: category.name) %>
-    <% end %>
+    <div class="categories">
+      <% Category.all.each do |category| %>
+        <%= link_to category.name, jobs_path(category: category.name), class: "category" %>
+      <% end %>
+    </div>
 
     <%= yield %>
 
