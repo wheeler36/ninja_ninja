@@ -19,6 +19,11 @@
   </p>
 
   <p>
+   <%= f.label :location %><br>
+   <%= f.text_field :location %>
+  </p>
+
+  <p>
    <%= f.label :description %><br>
    <%= f.text_area :description %>
   </p>
@@ -34,7 +39,7 @@
   </p>
 
   <p>
-   <%= f.submit %>
+   <%= f.submit class: "button" %>
   </p>
 
 <% end %>

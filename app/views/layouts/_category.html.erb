@@ -1,0 +1,7 @@
+<ul class="categories">
+  <% Category.all.each do |category| %>
+    <li class="category">
+      <%= link_to category.name, jobs_path(category: category.name) %>
+    </li>
+  <% end %>
+</ul>

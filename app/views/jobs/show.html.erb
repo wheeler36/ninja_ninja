@@ -1,14 +1,17 @@
-<div class="show">
-  <h3 class="job_title"><%= @job.title %><h3>
-  <p class="job_company"><%= @job.company %><br></p>
-  <p class="job_description"><%= @job.description %></p>
-  <p class="job_category"><%= @job.category.name %></p>
-  <%= link_to "View Job", @job.url, :target => "_blank" %>
-</div>
+<div class="wrapper">
+  <div class="show">
+    <h2 class="job_title"><%= @job.title %></h2>
+    <h3 class="job_company"><%= @job.company %><br></h3>
+    <p class="job_description"><%= @job.description %></p>
+    <p class="job_category"><%= @job.category.name %> | <span class="job_location"><%= @job.location %></span></p>
+    <%= link_to "View Job", @job.url, :target => "_blank" %><br><br>
 
-<% if @job.user == current_user %>
-  <div class="show_actions">
-    <p><%= link_to "Edit", edit_job_path(@job) %></p>
-    <p><%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "You Sure?" } %></p>
+    <% if @job.user == current_user %>
+      <div class="show_actions">
+        <%= link_to "Edit", edit_job_path(@job), class: "button" %> |
+        <%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "You Sure?" }, class: "button" %>
+      </div>
+    <% end %>
+
   </div>
-<% end %>
+</div>

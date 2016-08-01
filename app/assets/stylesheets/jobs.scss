@@ -1,3 +1,39 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary: #FFFFFF;
+$secondary: #5f4d4d;
+$accent: #252222;
+$white: #000000;
+	
+.show {
+	width: 100%;
+	padding: 2rem 1rem;
+	background: rgba(0, 0, 0, 0.25);
+	margin-top: 2rem;
+	.job_title {
+		font-size: 1.5rem;
+	}
+	.job_company {
+		font-size: 1.35rem;
+	}
+	.job_location {
+
+	}
+	.job_description {
+		letter-spacing: 1px;
+	}
+	.job_category {
+		font-size: 1.35rem;
+	}
+	a:hover {
+		background: $secondary;
+	}
+
+}
+.show_actions {
+	a {
+		margin: 0 0.5rem;
+	}
+}

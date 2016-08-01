@@ -14,13 +14,15 @@
  *= require_self
  */
 
-$primary: #5f4d4d;
-$secondary: #000000;
+$primary: #FFFFFF;
+$secondary: #5f4d4d;
 $accent: #252222;
-$white: #FFFFFF;
+$white: #000000;
 
 * {
 	box-sizing: border-box;
+	font-family: 'Kaushan Script', sans-serif;
+	font-size: 1.15rem;
 }
 
 html {
@@ -28,11 +30,15 @@ html {
 }
 
 body {
+	background: url('ninja_group.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: $primary;
 	height: 100%;
 	color: $primary;  
-	padding-top: 4.5rem;
-	font-family: 'Lato', sans-serif;
-	padding-bottom: 4rem;
+	padding-bottom: 3rem;
 }
 
 .clearfix:before,
@@ -45,11 +51,43 @@ body {
 	clear: both;
 }
 
+header {
+	top: 0;
+	width: 100%;
+	padding: 1.5rem 0;
+	.header_inner {
+		width: 90%;
+		margin: 0 auto;
+		.name {
+			display: inline-block;
+			font-size: 1.5rem;
+			width: 10rem;
+			float: left;
+		}
+		nav {
+			float: right;
+			a {
+				text-decoration: none;
+				color: $primary;
+				font-size: 1.1rem;
+				line-height: 1.5;
+				margin-left: 1rem;
+				&:hover {
+					color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+.notice, .alert {
+	text-align: center;
+}
+
 .wrapper {
-	padding: 0 2rem;
+	padding: 1.5rem 2rem;
 	.welcome {
 		text-align: center;
-		margin-top: 2rem;
 		padding: 2rem 0;
 		h1 {
 			font-size: 2.25rem;
@@ -66,18 +104,17 @@ body {
 	}
 }
 
-
-
 #timeline {
-	width: 100%;
+	width: 75%;
 	position: relative;
 	list-style: none;
 	padding: 0;
+	float: right;
 	a {
 		text-decoration: none;
 	}
 	.listing {
-		background: rgba(0, 0, 0, 0.05);
+		background: rgba(255, 255, 255, 0.85);
 		border: 1px solid $accent;
 		border-radius: 0.3rem;
 		padding: 1rem;
@@ -92,15 +129,6 @@ body {
 			font-size: .9rem;
 			color: $secondary;
 		}
-		.image_wrapper {
-			width: 60px;
-			img {
-				width: 60px;
-				display: block;
-				margin: 0 auto;
-				border-radius: .25rem;
-			}
-		}
 		.info {
 			line-height: 1.25;
 			width: 640px;
@@ -114,7 +142,7 @@ body {
 				color: $secondary;
 				display: block;
 				span {
-					margin: 0 0.75rem;
+					margin: 0 0.35rem;
 				}
 			}
 		}
@@ -150,8 +178,15 @@ body {
 
 .categories {
 	text-align: center;
+	list-style: none;
+	float: left;
+	width: 25%;
+	padding: 0.5rem 1rem;
+	font-size: 1.5rem;
+	margin: 0;
 	.category {
-		margin: 0 0.5rem;
+		margin: 1rem 0.5rem;
+		border-bottom: 1px solid $secondary;
 	}
 }
 
@@ -159,11 +194,12 @@ button, .button {
 	border: none;
 	outline: none;
 	background: $primary;
-	padding: 1rem 2.5rem;
-	border-radius: 2rem;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.75rem;
 	a {
 		color: $secondary;
 		text-decoration: none;
+		background: $primary;
 	}
 }
 
@@ -180,36 +216,6 @@ a {
 	}
 }
 
-header {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	padding: 1.5rem 0;
-	.header_inner {
-		width: 90%;
-		margin: 0 auto;
-		.name {
-			display: inline-block;
-			font-size: 1.5rem;
-			width: 10rem;
-			float: left;
-		}
-		nav {
-			float: right;
-			a {
-				text-decoration: none;
-				color: $primary;
-				font-size: 1.1rem;
-				line-height: 1.5;
-				margin-left: 1rem;
-				&:hover {
-					color: $secondary;
-				}
-			}
-		}
-	}
-}
-
 input[type="text"], input[type="email"], input[type="password"], textarea {
 	width: 100%;
 	margin-bottom: 1rem;
@@ -221,13 +227,24 @@ input[type="text"], input[type="email"], input[type="password"] {
 	height: 40px;
 }
 
+input[type="submit"] {
+	outline: none;
+	border: 1px solid $accent;
+	text-align: center;
+	font-size: 1em;
+	color: $secondary;
+	text-decoration: none;
+	&:hover {
+		color: $accent;
+	}
+}
+
 textarea {
 	min-height: 200px;
 }
 
 @media only screen and (max-width: 768px) {
 	header {
-		position: absolute;
 		top: 0;
 		width: 100%;
 		padding: 1.5rem 0;
@@ -253,20 +270,29 @@ textarea {
 			}
 		}
 	}
-	.categories {
-		margin-top: 5rem;
+	.wrapper {
+		padding: 1rem 0.5rem;
+		#timeline {
+			float: none;
+			width: 100%;
+		}
+		.categories {
+			float: none;
+			width: 100%;
+			.category {
+				border-bottom: none;
+				display: inline;
+			}
+		}
+		.show {
+			margin-top: 2rem;
+		}
 	}
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 520px) {
 	#timeline {
 		.listing {
-			.image_wrapper {
-				margin-right: 1rem;
-				img {
-					width: 50px;
-				}
-			}
 			.info {
 				width: 100%;
 				padding: 0.4rem 0 0 0;

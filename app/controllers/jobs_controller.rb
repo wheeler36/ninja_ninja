@@ -52,10 +52,10 @@ class JobsController < ApplicationController
 
   def authorized_user
     @job = current_user.jobs.find_by(id: params[:id])
-    redirect_to root_path, notice: "Not authorized to modify this job" if @job.nil?
+    redirect_to root_path, notice: "That is not your misson!" if @job.nil?
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :company, :url, :category_id)
+    params.require(:job).permit(:title, :description, :company, :url, :category_id, :location)
   end
 end
