@@ -2,7 +2,7 @@
   <div class="show">
     <h2 class="job_title"><%= @job.title %></h2>
     <h3 class="job_company"><%= @job.company %><br></h3>
-    <p class="job_description"><%= @job.description %></p>
+    <p class="job_description"><%= markdown @job.description %></p>
     <p class="job_category"><%= @job.category.name %> | <span class="job_location"><%= @job.location %></span></p>
     <%= link_to "View Job", @job.url, :target => "_blank" %><br><br>
 
