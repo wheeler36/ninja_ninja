@@ -27,10 +27,13 @@ $white: #000000;
 	.job_category {
 		font-size: 1.35rem;
 	}
-	a:hover {
-		background: $secondary;
+	a {
+		text-decoration: none;
+		&:hover {
+			color: $secondary;
+			background: $primary;
+		}
 	}
-
 }
 .show_actions {
 	a {
